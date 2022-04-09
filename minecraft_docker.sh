@@ -49,4 +49,9 @@ cd /home/ubuntu
 
 echo -e "\e[1;31m Starting docker container \e[0m"
 
-sudo docker-compose up -d && echo -e "\e[1;31m Docker container started \e[0m" && echo -e "\e[1;31m Opening minecraft server console from container \e[0m" && sudo docker container exec -it walkercraft rcon-cli
+# sudo screen -d -S mc_server -m && sudo docker-compose up -d && wait \ 
+# && echo -e "\e[1;31m Docker container started \e[0m" \ 
+# && echo -e "\e[1;31m Opening minecraft server console from container \e[0m" \ 
+# && sudo docker container exec -it walkercraft rcon-cli
+
+sudo screen -S mc_server -dm bash -c 'sudo docker-compose up -d ; wait ; sudo docker container exec -it walkercraft rcon-cli ; exec sh'
