@@ -54,4 +54,9 @@ echo -e "\e[1;31m Starting docker container \e[0m"
 # && echo -e "\e[1;31m Opening minecraft server console from container \e[0m" \ 
 # && sudo docker container exec -it walkercraft rcon-cli
 
-sudo screen -S mc_server -dm bash -c 'sudo docker-compose up -d ; wait ; sudo docker container exec -it walkercraft rcon-cli ; exec sh'
+# sudo screen -S mc_server -dm bash -c 'sudo docker-compose up -d ; wait ; sudo docker container exec -it walkercraft rcon-cli ; exec sh'
+sudo screen -S mc_server -dm bash -c 'sudo docker-compose up -d ; exec sh'
+# "screen -r mc_server" to reattach to minecraft screen
+
+# Run this to get into minecraft-cli, once docker container has started
+# >sudo docker container exec -it walkercraft rcon-cli
